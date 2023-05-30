@@ -1,11 +1,11 @@
-import { Fontisto } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons'; 
 import { View, StyleSheet, Pressable } from 'react-native';
 
 const IconButton = ({ onPress, icon, color }) => {
     return (
         <Pressable onPress={onPress} style={({ pressed }) => pressed && styles.pressed}>
             <View>
-                <Fontisto name={icon} size={24} color={color} />
+                <MaterialIcons name={icon} size={24} color={color} />
             </View>
         </Pressable>
     )
