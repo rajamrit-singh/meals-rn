@@ -4,20 +4,22 @@ import MealDetails from '../components/MealDetails';
 import Subtitle from '../components/MealDetail/Subtitle';
 import List from '../components/MealDetail/List';
 import { useLayoutEffect } from 'react';
-import { Fontisto } from '@expo/vector-icons'; 
+import IconButton from '../components/IconButton';
 
 const MealDetailsScreen = ({ route, navigation }) => {
     const meal = MEALS.find((meal) => meal.id === route.params.itemId);
 
+    const onHeaderRightButtonPressHandler = () => {
+        console.log('here')
+    }
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => {
                 return (
-                    <Pressable>
-                        <View>
-                        <Fontisto name="favorite" size={24} color="white" />
-                        </View>
-                    </Pressable>
+                    <IconButton
+                        color='white'
+                        icon='favorite'
+                        onPress={onHeaderRightButtonPressHandler}/>
                 )
             }
         })
