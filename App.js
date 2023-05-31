@@ -11,6 +11,8 @@ import FavoritesScreen from './screens/FavouritesScreen';
 import { Feather } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import FavouritesContextProvider from './store/context/favourites-context';
+import { Provider } from 'react-redux';
+import { store } from './store/redux/store';
 
 const Drawer = createDrawerNavigator();
 
@@ -59,7 +61,7 @@ export default function App() {
   return (
     <>
       <StatusBar style='light'></StatusBar>
-      <FavouritesContextProvider>
+      <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator screenOptions={{
             headerStyle: {
@@ -89,7 +91,7 @@ export default function App() {
             />
           </Stack.Navigator>
         </NavigationContainer >
-      </FavouritesContextProvider>
+      </Provider>
     </>
   );
 }
